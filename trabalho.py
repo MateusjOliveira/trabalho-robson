@@ -18,13 +18,12 @@ CORS(app)
 
 @app.route('/')
 def root():
-    return "Server no ar<br>"+
-           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/<v1>/<v2>"
+    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/<v1>/<v2>"
 
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
 def sum(v1,v2):
-    
+
     soma = { "Soma" : int(v1) + int(v2) }
 
     response = jsonify(soma)
