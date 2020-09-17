@@ -18,7 +18,8 @@ CORS(app)
 
 @app.route('/')
 def root():
-    return "Server no ar"
+    return "Server no ar<br>"+
+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/<v1>/<v2>"
 
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
