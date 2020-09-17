@@ -19,13 +19,12 @@ get_ipython().system('pip install flask-cors')
 # In[1]:
 
 
-from flask_ngrok import run_with_ngrok
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
 import os
 
 
-# In[ ]:
+# In[3]:
 
 
 app = Flask(__name__)
@@ -37,31 +36,9 @@ CORS(app)
 def root():
     return "Server no ar"
 
-@app.route('/api/v1/message', methods=['POST'])
-def classify_post():
-
-    value = request.json
-
-    data = { "message" : value["message"]}
-
-    response = jsonify(data)
-    return response
-
-@app.route('/api/v1/message', methods=['GET'])
-def classify_get():
-
-    value = request.args
-
-    data = { "message" : value["message"]}
-    
-    response = jsonify(data)
-    return response
-
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
 def sum(v1,v2):
-
-    value = request.args
     
     soma = { "Soma" : int(v1) + int(v2) }
 
@@ -71,6 +48,12 @@ def sum(v1,v2):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
+
+# In[5]:
+
+
+get_ipython().system('pip freeze -r requirements.txt')
 
 
 # In[ ]:
