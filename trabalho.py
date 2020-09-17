@@ -1,21 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-from flask_ngrok import run_with_ngrok
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-
-
-# In[2]:
-
-
-get_ipython().system('pip install flask-ngrok')
-get_ipython().system('pip install flask-cors')
-
-
 # In[6]:
 
 
@@ -52,16 +37,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# In[5]:
-
-
-get_ipython().system('pip freeze -r requirements.txt')
-
-
-# In[ ]:
-
-
-
 
