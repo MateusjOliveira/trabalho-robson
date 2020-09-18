@@ -17,7 +17,9 @@ app = Flask(__name__)
 
 CORS(app)
 
-return "Server no ar<br>"+\
+@app.route('/')
+def root():
+    return "Server no ar<br>"+\
            "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+\
            "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+\
            "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+\
@@ -26,7 +28,7 @@ return "Server no ar<br>"+\
            "https://trabalho-robson-mateus-n120029.herokuapp.com/pot/v1/v2<br>"+\ 
            "https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>"+\
            "https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>"+\
-           "https://trabalho-robson-mateus-n120029.herokuapp.com/moda/v1/v2/v3<br>"
+           "https://trabalho-robson-mateus-n120029.herokuapp.com/moda/v1/v2/v3<br>" 
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
 def sum(v1,v2):
