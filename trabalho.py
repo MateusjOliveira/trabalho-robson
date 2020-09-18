@@ -193,7 +193,7 @@ def mod(v1,v2,v3):
     elif vlr2 == vlr3 :
       moda = {"moda" : vlr3}    
     else              :
-      moda = { "Moda " : [vlr1,vlr2,vlr3] }
+     moda = { "Moda " : [vlr1,vlr2,vlr3] }
 
     response = jsonify(moda)
     return response
