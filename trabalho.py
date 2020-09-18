@@ -18,8 +18,7 @@ CORS(app)
 
 @app.route('/')
 def root():
-    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>"
-
+    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/moda/v1/v2/v3<br>" 
 
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
@@ -154,7 +153,7 @@ def mod(v1,v2,v3):
 
     moda = { "Moda " : vlr1,vlr2,vlr3 }
 
-    response = jsonify(medh)
+    response = jsonify(moda)
     return response
 
 if __name__ == "__main__":
