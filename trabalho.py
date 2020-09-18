@@ -1,198 +1,238 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[6]:
-
-
+import os
 from flask import Flask, jsonify
 from flask_cors import CORS
 from math import sqrt
-import os
-
-
-# In[ ]:
-
 
 app = Flask(__name__)
 
 CORS(app)
 
+app.config['JSON_AS_ASCII'] = False
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
 @app.route('/')
 def root():
-    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/raiz/v1<br>"+\ 
-           "https://trabalho-robson-mateus-n120029.herokuapp.com/pot/v1/v2<br>"+\ 
-           "https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/moda/v1/v2/v3<br>" 
+    return 'Digite qual operação gostaria de fazer entre as opções <br> <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/sum/primeiro valor/segundo valor <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/subtraction/primeiro valor/segundo valor <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/division/primeiro valor/segundo valor <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/multiplication/primeiro valor/segundo valor <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/squareroot/valor <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/power/base/expoente <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/arithmeticaverage/primeiro valor/segundo valor/terceiro valor <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/harmonicmean/primeiro valor/segundo valor/terceiro valor <br>' + \
+           'https://trab-robson-wallace-d27hec6.herokuapp.com/mod/primeiro valor/segundo valor/terceiro valor <br>'
 
-#soma
-@app.route('/soma/<v1>/<v2>', methods=['GET'])
-def sum(v1,v2):
-    
-    try: 
-        vlr1 = int(v1)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/sum/<value1>/<value2>', methods=['GET'])
+def somar(value1, value2):
+
+    try:
+        valor1 = int(value1)
     except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
+        return 'Primeiro valor inválido.'
+
+    try:
+        valor2 = int(value2)
     except:
-        return "Valor errado"
+        return 'Segundo valor inválido.'
 
-    soma = { "Soma" : vlr1 + vlr2}
+    ret = {"Resultado": valor1 + valor2}
 
-    response = jsonify(soma)
-    return response
+    return jsonify(ret)
 
-#Subtrair
-@app.route('/subt/<v1>/<v2>', methods=['GET'])
-def subt(v1,v2):
-    
-    try: 
-        vlr1 = int(v1)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/subtraction/<value1>/<value2>', methods=['GET'])
+def subtraction(value1, value2):
+    try:
+        valor1 = int(value1)
     except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
+        return 'Primeiro valor inválido.'
+
+    try:
+        valor2 = int(value2)
     except:
-        return "Valor errado"
+        return 'Segundo valor inválido.'
 
-    sub = { "Subtrair" : vlr1 - vlr2 }
+    ret = {"Resultado éé": valor1 - valor2}
 
-    response = jsonify(sub)
-    return response
+    return jsonify(ret)
 
-#Dividir
-@app.route('/div/<v1>/<v2>', methods=['GET'])
-def divi(v1,v2):
-    
-    try: 
-        vlr1 = int(v1)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/division/<value1>/<value2>', methods=['GET'])
+def division(value1, value2):
+    try:
+        valor1 = int(value1)
     except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
+        return 'Primeiro valor inválido.'
+
+    try:
+        valor2 = int(value2)
     except:
-        return "Valor errado"
+        return 'Segundo valor inválido.'
 
-    div = { "Divisão " : vlr1 / vlr2 }
+    ret = {"Resultado": valor1 / valor2}
 
-    response = jsonify(div)
-    return response
+    return jsonify(ret)
 
-#Multiplicar
-@app.route('/mult/<v1>/<v2>', methods=['GET'])
-def mult(v1,v2):
-    
-    try: 
-        vlr1 = int(v1)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/multiplication/<value1>/<value2>', methods=['GET'])
+def multiplication(value1, value2):
+    try:
+        valor1 = int(value1)
     except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
+        return 'Primeiro valor inválido.'
+
+    try:
+        valor2 = int(value2)
     except:
-        return "Valor errado"
+        return 'Segundo valor inválido.'
 
-    mult = { "Multiplicacao" : vlr1 * vlr2 }
+    ret = {"Resultado": valor1 * valor2}
 
-    response = jsonify(mult)
-    return response
+    return jsonify(ret)
 
-#Raiz Quadrada
-@app.route('/raiz/<v1>', methods=['GET'])
-def raiz(v1):
-    
-    try: 
-        vlr1 = int(v1)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/squareroot/<value>', methods=['GET'])
+def squareroot(value):
+    try:
+        valor1 = int(value)
     except:
-        return "Valor errado"
-    
-    raiz = { "Raiz" : sqrt(vlr1)}
+        return 'Valor inválido.'
 
-    response = jsonify(raiz)
-    return response
+    ret = {"Resultado": sqrt(valor1)}
 
-#Potência
-@app.route('/pot/<v1>/<v2>', methods=['GET'])
-def pot(v1,v2):
-    
-    try: 
-        vlr1 = int(v1)
+    return jsonify(ret)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/power/<base>/<exponent>', methods=['GET'])
+def power(base, exponent):
+    try:
+        li_base = int(base)
     except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
+        return 'Base Inválida.'
+
+    try:
+        li_exponent = int(exponent)
     except:
-        return "Valor errado"
+        return 'Expoente inválido.'
 
-    pote = { "Potencia" : vlr1 ** vlr2 }
+    ret = {"Resultado": li_base ** li_exponent}
 
-    response = jsonify(pote)
-    return response
+    return jsonify(ret)
 
-#Média Aritmética
-@app.route('/medari/<v1>/<v2>', methods=['GET'])
-def meda(v1,v2):
-    
-    try: 
-        vlr1 = int(v1)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/arithmeticaverage/<value1>/<value2>/<value3>', methods=['GET'])
+def arithmeticaverage(value1, value2, value3):
+    try:
+        valor1 = int(value1)
     except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
+        return 'Primeiro valor inválido.'
+
+    try:
+        valor2 = int(value2)
     except:
-        return "Valor errado"
+        return 'Segundo valor inválido.'
 
-    meda = { "Media Aritmetica " : (vlr1 + vlr2)/2 }
-
-    response = jsonify(meda)
-    return response
-
-#Média Harmônica
-@app.route('/medh/<v1>/<v2>', methods=['GET'])
-def medh(v1,v2):
-    
-    try: 
-        vlr1 = int(v1)
+    try:
+        valor3 = int(value3)
     except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
-    except:
-        return "Valor errado"
+        return 'Terceiro valor inválido.'
 
-    medh = { "Media Harmonica " : 2/((1/vlr1) + (1/vlr2)) }
+    ret = {"Resultado": (valor1 + valor2 + valor3) / 3}
 
-    response = jsonify(medh)
-    return response
+    return jsonify(ret)
 
-#Moda
-@app.route('/moda/<v1>/<v2>/<v3>', methods=['GET'])
-def mod(v1,v2,v3):
-    
-    try: 
-        vlr1 = int(v1)
-    except:
-        return "Valor errado"
-    try: 
-        vlr2 = int(v2)
-    except:
-        return "Valor errado"
-    try: 
-        vlr3 = int(v3)
-    except:
-        return "Valor errado"
-                                   
-    if   vlr1 == vlr2 :
-      moda = {"moda" : vlr1}
-    elif vlr2 == vlr3 :
-      moda = {"moda" : vlr2}
-    elif vlr2 == vlr3 :
-      moda = {"moda" : vlr3}    
-    else :
-     moda = { "Moda " : [vlr1,vlr2,vlr3] }
 
-    response = jsonify(moda)
-    return response
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/harmonicmean/<value1>/<value2>/<value3>', methods=['GET'])
+def harmonicmean(value1, value2, value3):
+    try:
+        valor1 = int(value1)
+    except:
+        return 'Primeiro valor inválido.'
+
+    try:
+        valor2 = int(value2)
+    except:
+        return 'Segundo valor inválido.'
+
+    try:
+        valor3 = int(value3)
+    except:
+        return 'Terceiro valor inválido.'
+
+    ret = {"Resultado": 3 / ((1 / valor1) + (1 / valor2) + (1 / valor3))}
+
+    return jsonify(ret)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/mod/<value1>/<value2>/<value3>', methods=['GET'])
+def mod(value1, value2, value3):
+    try:
+        valor1 = int(value1)
+    except:
+        return 'Primeiro valor inválido.'
+
+    try:
+        valor2 = int(value2)
+    except:
+        return 'Segundo valor inválido.'
+
+    try:
+        valor3 = int(value3)
+    except:
+        return 'Terceiro valor inválido.'
+
+    dicionario = {}
+    array = [valor1, valor2, valor3]
+
+    for numeros in array:
+        try:
+            dicionario[str(numeros)] = dicionario[str(numeros)] + 1
+        except:
+            dicionario[str(numeros)] = 1
+
+    if dicionario[max(dicionario, key=dicionario.get)] == 1:
+        ret = {"Resultado": array}
+    else:
+        ret = {"Resultado": int((max(dicionario, key=dicionario.get)))}
+
+    return jsonify(ret)
+
+
+def main():
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
-
+    main()
