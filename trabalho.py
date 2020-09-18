@@ -122,7 +122,8 @@ def medh(v1,v2):
         vlr2 = int(v2)
     except:
         return "Valor errado"
-    medh = { "Média Harmônica " : ((1/vlr1) + (1/vlr2)/2 }
+
+    medh = { "Média Harmônica " : 2/((1/vlr1) + (1/vlr2)) }
 
     response = jsonify(medh)
     return response
@@ -144,14 +145,14 @@ def mod(v1,v2,v3):
     except:
         return "Valor errado"
                                    
-    if   vlr1 == vlr2 then
-      return vlr1
-    elif vlr2 == vlr3 then
-      return vlr2
-    elif vlr2 == vlr3 then
-      return vlr1    
-
-    moda = { "Moda " : vlr1,vlr2,vlr3 }
+    if   vlr1 == vlr2 :
+      moda = {"moda" : vlr1}
+    elif vlr2 == vlr3 :
+      moda = {"moda" : vlr2}
+    elif vlr2 == vlr3 :
+      moda = {"moda" : vlr3}    
+    else :
+     moda = { "Moda " : vlr1,vlr2,vlr3 }
 
     response = jsonify(moda)
     return response
