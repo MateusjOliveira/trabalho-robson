@@ -23,8 +23,8 @@ def root():
            'https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>' + \
            'https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>' + \
            'https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>' + \
-           'https://trab-robson-wallace-d27hec6.herokuapp.com/multiplication/primeiro valor/segundo valor <br>' + \
-           'https://trab-robson-wallace-d27hec6.herokuapp.com/squareroot/valor <br>' + \
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>' + \
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/raiz/v1<br>' + \
            'https://trab-robson-wallace-d27hec6.herokuapp.com/power/base/expoente <br>' + \
            'https://trab-robson-wallace-d27hec6.herokuapp.com/arithmeticaverage/primeiro valor/segundo valor/terceiro valor <br>' + \
            'https://trab-robson-wallace-d27hec6.herokuapp.com/harmonicmean/primeiro valor/segundo valor/terceiro valor <br>' + \
