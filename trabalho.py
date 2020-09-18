@@ -18,7 +18,8 @@ CORS(app)
 
 @app.route('/')
 def root():
-    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>" 
+    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>"
+
 
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
@@ -69,7 +70,7 @@ def divi(v1,v2):
     except:
         return "Valor errado"
 
-    div = { "Soma" : vlr1 / vlr2 }
+    div = { "Divisão " : vlr1 / vlr2 }
 
     response = jsonify(div)
     return response
@@ -87,11 +88,74 @@ def mult(v1,v2):
     except:
         return "Valor errado"
 
-    mult = { "Soma" : vlr1 * vlr2 }
+    mult = { "Multiplicação" : vlr1 * vlr2 }
 
     response = jsonify(mult)
     return response
 
+#Média Aritmética
+@app.route('/medari/<v1>/<v2>', methods=['GET'])
+def meda(v1,v2):
+    
+    try: 
+        vlr1 = int(v1)
+    except:
+        return "Valor errado"
+    try: 
+        vlr2 = int(v2)
+    except:
+        return "Valor errado"
+
+    meda = { "Média Aritmética " : (vlr1 + vlr2)/2 }
+
+    response = jsonify(meda)
+    return response
+
+#Média Harmônica
+@app.route('/medh/<v1>/<v2>', methods=['GET'])
+def medh(v1,v2):
+    
+    try: 
+        vlr1 = int(v1)
+    except:
+        return "Valor errado"
+    try: 
+        vlr2 = int(v2)
+    except:
+        return "Valor errado"
+    medh = { "Média Harmônica " : ((1/vlr1) + (1/vlr2)/2 }
+
+    response = jsonify(medh)
+    return response
+
+#Moda
+@app.route('/moda/<v1>/<v2>/<v3>', methods=['GET'])
+def mod(v1,v2,v3):
+    
+    try: 
+        vlr1 = int(v1)
+    except:
+        return "Valor errado"
+    try: 
+        vlr2 = int(v2)
+    except:
+        return "Valor errado"
+    try: 
+        vlr3 = int(v3)
+    except:
+        return "Valor errado"
+                                   
+    if   vlr1 == vlr2 then
+      return vlr1
+    elif vlr2 == vlr3 then
+      return vlr2
+    elif vlr2 == vlr3 then
+      return vlr1    
+
+    moda = { "Moda " : vlr1,vlr2,vlr3 }
+
+    response = jsonify(medh)
+    return response
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
