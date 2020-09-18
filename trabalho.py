@@ -105,7 +105,7 @@ def meda(v1,v2):
     except:
         return "Valor errado"
 
-    meda = { "Média Aritmética " : (vlr1 + vlr2)/2 }
+    meda = { "Media Aritmetica " : (vlr1 + vlr2)/2 }
 
     response = jsonify(meda)
     return response
@@ -123,7 +123,7 @@ def medh(v1,v2):
     except:
         return "Valor errado"
 
-    medh = { "Média Harmônica " : 2/((1/vlr1) + (1/vlr2)) }
+    medh = { "Media Harmonica " : 2/((1/vlr1) + (1/vlr2)) }
 
     response = jsonify(medh)
     return response
@@ -146,13 +146,13 @@ def mod(v1,v2,v3):
         return "Valor errado"
                                    
     if   vlr1 == vlr2 :
-        moda = {"moda" : vlr1}
+      moda = {"moda" : vlr1}
     elif vlr2 == vlr3 :
-      	moda = {"moda" : vlr2}
+      moda = {"moda" : vlr2}
     elif vlr2 == vlr3 :
-      	moda = {"moda" : vlr3}    
-    else              :
-      	moda = { "Moda " : [vlr1,vlr2,vlr3] }
+      moda = {"moda" : vlr3}    
+    else :
+     moda = { "Moda " : vlr1,vlr2,vlr3 }
 
     response = jsonify(moda)
     return response
