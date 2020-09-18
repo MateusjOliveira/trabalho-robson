@@ -6,6 +6,7 @@
 
 from flask import Flask, jsonify
 from flask_cors import CORS
+from math import sqrt
 import os
 
 
@@ -18,7 +19,9 @@ CORS(app)
 
 @app.route('/')
 def root():
-    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/moda/v1/v2/v3<br>" 
+    return "Server no ar<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/raiz/v1<br>"+\ 
+           "https://trabalho-robson-mateus-n120029.herokuapp.com/pot/v1/v2<br>"+\ 
+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>"+           "https://trabalho-robson-mateus-n120029.herokuapp.com/moda/v1/v2/v3<br>" 
 
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
@@ -87,9 +90,41 @@ def mult(v1,v2):
     except:
         return "Valor errado"
 
-    mult = { "Multiplicação" : vlr1 * vlr2 }
+    mult = { "Multiplicacao" : vlr1 * vlr2 }
 
     response = jsonify(mult)
+    return response
+
+#Raiz Quadrada
+@app.route('/raiz/<v1>', methods=['GET'])
+def raiz(v1):
+    
+    try: 
+        vlr1 = int(v1)
+    except:
+        return "Valor errado"
+    
+    raiz = { "Raiz" : sqrt(vlr1)}
+
+    response = jsonify(raiz)
+    return response
+
+#Potência
+@app.route('/pot/<v1>/<v2>', methods=['GET'])
+def pot(v1,v2):
+    
+    try: 
+        vlr1 = int(v1)
+    except:
+        return "Valor errado"
+    try: 
+        vlr2 = int(v2)
+    except:
+        return "Valor errado"
+
+    pote = { "Potencia" : vlr1 ** vlr2 }
+
+    response = jsonify(pote)
     return response
 
 #Média Aritmética
