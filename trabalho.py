@@ -19,16 +19,16 @@ CORS(app)
 
 @app.route('/')
 def root():
-    return 'Digite qual operação gostaria de fazer entre as opções <br> <br>' + \
-           'https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>' + \
-           'https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>' + \
-           'https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>' + \
-           'https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>' + \
-           'https://trabalho-robson-mateus-n120029.herokuapp.com/raiz/v1<br>' + \
-           'https://trab-robson-wallace-d27hec6.herokuapp.com/power/base/expoente <br>' + \
-           'https://trab-robson-wallace-d27hec6.herokuapp.com/arithmeticaverage/primeiro valor/segundo valor/terceiro valor <br>' + \
-           'https://trab-robson-wallace-d27hec6.herokuapp.com/harmonicmean/primeiro valor/segundo valor/terceiro valor <br>' + \
-           'https://trab-robson-wallace-d27hec6.herokuapp.com/mod/primeiro valor/segundo valor/terceiro valor <br>'
+    return 'Digite a operação que deseja<br> <br>'     +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/soma/v1/v2<br>'  +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/subt/v1/v2<br>'  +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/div/v1/v2<br>'   +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/mult/v1/v2<br>'  +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/raiz/v1<br>'     +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/pot/v1/v2<br>'   +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/medari/v1/v2<br>'+\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/medh/v1/v2<br>'  +\
+           'https://trabalho-robson-mateus-n120029.herokuapp.com/moda/v1/v2/v3<br>'
 
 #soma
 @app.route('/soma/<v1>/<v2>', methods=['GET'])
